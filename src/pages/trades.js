@@ -1,11 +1,30 @@
 import React, { Component } from 'react'
 
 class Trades extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            symbol: ''
+        }
+    }
+
+    componentDidMount(){
+        socket.on('TRADE:HISTORY:RESPONSE', res => {
+            console.log(res)
+        })
+    }
+
+    getTradeHistory(){
+        let { symbol } = this.state;
+        socket.emit('TRADE:HISTORY', { symbol })
+    }
+
     render() {
         return (
             <div class="content-wrapper">
                 <section class="content-header">
-                    <h1> Data Tables </h1>
+                    <h1> Trade History </h1>
                 </section>
 
                 <section class="content">
@@ -13,9 +32,20 @@ class Trades extends Component {
                         <div class="col-xs-12">
                             <div class="box">
                                 <div class="box-header">
-                                    <h3 class="box-title">Hover Data Table</h3>
+                                    <div class="input-group margin">
+                                        <input type="text" class="form-control" onChange={(e) => {
+                                            this.setState({ symbol: e.target.value })
+                                        }} />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-info btn-flat" onClick={() => {
+                                                this.getTradeHistory()
+                                            }}>Get Trade History</button>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="box-body"> Tangin </div>
+                                <div class="box-body"> 
+                                
+                                 </div>
                             </div>
                         </div>
                     </div>

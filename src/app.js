@@ -16,8 +16,6 @@ switch(page){
         default: break;
 }
 
-console.log(page)
-
 class App extends Component {
     render() {
         return (
@@ -25,9 +23,7 @@ class App extends Component {
                 <div class="wrapper">
                     <Header />
                     <Sidebar />
-
                     <Content/>
-
                     <Footer />
                     <div class="control-sidebar-bg"></div>
                 </div>
