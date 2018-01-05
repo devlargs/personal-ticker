@@ -68,7 +68,7 @@ class Trades extends Component {
                                                         <td>Price</td>
                                                         <td>Quantity</td>
                                                         <td>Commission (1% Fee)</td>
-                                                        {/* <td>Time</td> */}
+                                                        <td>Total</td>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -82,6 +82,7 @@ class Trades extends Component {
                                                                     <td>{q.price}</td>
                                                                     <td>{q.qty.split('.')[0]}</td>
                                                                     <td>{q.commission}</td>
+                                                                    <td><b>{(q.price * q.qty).toFixed(7)}</b></td>
                                                                 </tr>
                                                             )
                                                         })
