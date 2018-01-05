@@ -9,7 +9,7 @@ binance.options({
 
 module.exports = function (io) {
     io.sockets.on("connection", function (socket) {
-
+        
         socket.on('TRADE:HISTORY', res => {
             binance.trades(res.symbol, (trades, symbol) => {
                 socket.emit('TRADE:HISTORY:RESPONSE', {
