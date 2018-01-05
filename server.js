@@ -1,6 +1,4 @@
 var express = require('express');
-// var compression = require('compression');
-// var settings = require('./settings');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -8,14 +6,11 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var path = require('path');
 var socketIO = require('socket.io');
-//var lessMiddleware = require('less-middleware');
-// var mongoStore = require('connect-mongo')(session);
 
 var app = express();
 var port = normalizePort('3002');
 app.set('port', port);
 var server = http.createServer(app);
-
 var io = socketIO(server, { origins: '*:*' });
 io.set('origins', '*:*');
 
@@ -27,11 +22,8 @@ server.on('listening', onListening);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(cookieParser());
-
-
 app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, 'dist')));
 

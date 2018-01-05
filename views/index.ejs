@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title> <%= title %> </title>
   </head>
-  <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <body>
-    <div id="container">
-      Ralph Largo
-    </div>
+  <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/admin-lte/dist/css/AdminLTE.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin-lte/dist/css/skins/_all-skins.min.css">
+
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div id="container"></div>
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/admin-lte/dist/js/adminlte.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io('//localhost:3002/');
+      var page = <%- page %>
+    </script>
+    <script src="/script.min.js"></script>
   </body>
-
-  <script src="/jquery/dist/jquery.min.js"></script>
-  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
-
-  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io('//localhost:3002/')
-    socket.on('connect', function(){
-      console.log("ralph")
-      socket.emit("Test", { "ralph": 1})
-    })
-  </script>
-
-  <script src="/script.min.js"></script>
 </html>

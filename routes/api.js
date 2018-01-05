@@ -1,12 +1,24 @@
-module.exports = function(io){
-    io.sockets.on("connection", function(socket){
-        console.log("connected")
+var binance = require('node-binance-api');
+var key = process.env.BKey;
+var secret = process.env.BSecret;
 
-        socket.on("Test", function(e){
-            console.log(e)
-        })
+binance.options({
+    'APIKEY': key,
+    'APISECRET': secret
+});
 
-        socket.on('disconnect', function(){
+module.exports = function (io) {
+    io.sockets.on("connection", function (socket) {
+
+        socket.on('TRADE:HISTORY', res => {
+            binance.trades(res.symbol, (trades, symbol) => {
+                socket.emit('TRADE:HISTORY:RESPONSE', {
+                    trades, symbol
+                })
+            });
+        });
+
+        socket.on('disconnect', function () {
             console.log("disconnected")
         })
     })
