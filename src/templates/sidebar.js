@@ -18,16 +18,18 @@ class Sidebar extends Component {
 
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">MAIN NAVIGATION</li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i>
-                                <span>Dashboard</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
+                        <li>
+                            <a href="/">
+                                <i class="fa fa-home"></i>
+                                <span>Home</span>
                             </a>
                         </li>
-
+                        <li>
+                            <a href="/trades">
+                                <i class="fa fa-area-chart"></i>
+                                <span>Trade History</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
             </aside>

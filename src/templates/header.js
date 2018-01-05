@@ -31,16 +31,12 @@ class Header extends Component {
                                         <img src="http://www.wilwia.com/images/default-user.png" class="img-circle" alt="User Image" />
                                         <p>
                                             Ralph Largo (Web Developer)
-                        <small>Cryptocurrency Investor since Nov 2017</small>
+                                            <small>Cryptocurrency Investor since Nov 2017</small>
                                         </p>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#" data-toggle="control-sidebar">
-                                    <i class="fa fa-gears"></i>
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </nav>
