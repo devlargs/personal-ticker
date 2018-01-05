@@ -30,6 +30,8 @@ class Trades extends Component {
     render() {
         let { trades } = this.state;
 
+        console.log(trades)
+
         return (
             <div class="content-wrapper">
                 <section class="content-header">
@@ -60,9 +62,9 @@ class Trades extends Component {
                                             <table class="table table-responsive table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <td>Best Match</td>
-                                                        <td>Buyer</td>
-                                                        <td>Maker</td>
+                                                        {/* <td>Best Match</td> */}
+                                                        <td>ACTION</td>
+                                                        {/* <td>Maker</td> */}
                                                         <td>Price</td>
                                                         <td>Quantity</td>
                                                         <td>Commission (1% Fee)</td>
@@ -74,11 +76,11 @@ class Trades extends Component {
                                                         trades.map((q, i) => {
                                                             return (
                                                                 <tr key={i}>
-                                                                    <td>{q.isBestMatch.toString()}</td>
-                                                                    <td>{q.isBuyer.toString()}</td>
-                                                                    <td>{q.isMaker.toString()}</td>
+                                                                    {/* <td>{q.isBestMatch.toString()}</td> */}
+                                                                    <td>{(q.isBuyer) ? 'BUY' : 'SELL'}</td>
+                                                                    {/* <td>{q.isMaker.toString()}</td> */}
                                                                     <td>{q.price}</td>
-                                                                    <td>{q.qty}</td>
+                                                                    <td>{q.qty.split('.')[0]}</td>
                                                                     <td>{q.commission}</td>
                                                                 </tr>
                                                             )
